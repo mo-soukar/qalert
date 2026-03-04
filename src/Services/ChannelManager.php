@@ -34,5 +34,16 @@ class ChannelManager {
         };
     }
 
+    public function sendMessageToAllChannels(string $message , array $options = [])
+    {
+        foreach ($this->getChannels() as $channel) {
+            try {
+                $this->getChannelObject($channel)->send($message, $options);
+            } catch (\Exception $e) {
+                \Illuminate\Support\Facades\Log::error("QAlert Channel Failed: " . $e->getMessage());
+            }
+        }
+    }
+
 
 }

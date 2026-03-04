@@ -12,8 +12,10 @@ class TelegramChannel implements NotificationChannel {
 
     public function send(string $message, array $payload=[])
     {
-        $eventParser = $payload['event'];
-        $message = sprintf($message."\n".$eventParser->getMessage());
+        if(key_exists('event' , $payload)){
+            $eventParser = $payload['event'];
+            $message = sprintf($message."\n".$eventParser->getMessage());
+        }
         $this->telegramService->sendMessage($message);
     }
 }
