@@ -1,0 +1,27 @@
+{
+  "name": "soukar/qalert",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Soukar\\QAlert\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Soukar\\QAlert\\Providers\\QAlertServiceProvider"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "Mohammad Soukar",
+      "email": "mohammadsoukar2@gmail.com"
+    }
+  ],
+  "require": {
+  }
+}
