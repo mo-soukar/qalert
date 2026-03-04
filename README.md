@@ -23,7 +23,7 @@ Publish the config file to your project's config directory to customize
 channels and tokens:
 
 ``` bash
-php artisan vendor:publish --tag=qalert-config
+php artisan vendor:publish --tag=qalert
 ```
 
 ------------------------------------------------------------------------

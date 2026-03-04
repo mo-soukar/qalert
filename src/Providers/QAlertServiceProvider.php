@@ -25,7 +25,7 @@ class QAlertServiceProvider
         Event::listen(JobFailed::class, [JobFailedListener::class, 'handle']);
         $this->mergeConfigFrom(__DIR__ . '/../Config/qalert.php', 'qalert');
         $this->publishes([
-            '../Config/qalert.php' => config_path('qalert.php'),
+            __DIR__.'/../Config/qalert.php' => config_path('qalert.php'),
                          ],'qalert');
     }
 }
