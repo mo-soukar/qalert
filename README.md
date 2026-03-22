@@ -82,6 +82,19 @@ When a job fails:
 
 ------------------------------------------------------------------------
 
+## 💓 Queue Heartbeat (Stay Alive)
+
+QAlert isn't just for failed jobs; it also ensures your Queue Workers are actually running. It uses a **Heartbeat** system that leverages Laravel's default Scheduling system.
+
+### How to activate it:
+1. Ensure your Laravel Scheduler is running (`* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1`).
+2. QAlert will automatically schedule a "Ping" job every hour (or your custom interval).
+3. If the Heartbeat job isn't processed within the expected timeframe, you'll receive a **"Queue Stalled"** alert on Telegram.
+
+This ensures that even if the `supervisor` stops or the connection to `Redis/Database` is lost, you'll still be the first to know.
+
+------------------------------------------------------------------------
+
 ## 🤝 Contributing
 
 Contributions are welcome!\
