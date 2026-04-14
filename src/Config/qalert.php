@@ -4,8 +4,8 @@
 return [
     'channels' => [
         'telegram' => [
-            'bot_token' => env('TELEGRAM_BOT_TOKEN'),
-            'chat_id' => env('TELEGRAM_CHAT_ID'),
+            'bot_token' => env('QALERT_TELEGRAM_BOT_TOKEN'),
+            'chat_id' => env('QALERT_TELEGRAM_CHAT_ID'),
         ]
     ],
     'heartbeat' => [
@@ -22,5 +22,6 @@ return [
     'default_channel' => 'telegram',
     'project'   => env('APP_NAME', 'Unknown Service'),
     'enabled'   => env('QALERT_ENABLED', true),
+
 
 ];

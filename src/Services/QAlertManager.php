@@ -64,4 +64,6 @@ class QAlertManager {
              throw new \BadMethodCallException();
          }
     }
+
+
 }

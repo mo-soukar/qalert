@@ -5,11 +5,14 @@ namespace Soukar\QAlert\Providers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
+use Monolog\Logger;
 use Soukar\QAlert\Facades\QAlert;
 use Soukar\QAlert\Listeners\JobFailedListener;
 use Soukar\QAlert\Services\ChannelManager;
 use Soukar\QAlert\Services\HeartBeatManager;
+use Soukar\QAlert\Services\LogHandler;
 use Soukar\QAlert\Services\QAlertManager;
 
 class QAlertServiceProvider
@@ -39,6 +42,13 @@ class QAlertServiceProvider
             $schedule->call(function () {
                 \Soukar\QAlert\Facades\QAlert::checkHeartBeat();
             })->cron("*/".config('qalert.heartbeat.check_interval')." * * * *");
+        });
+
+
+        Log::extend('qalert', function ($app, array $config) {
+            $handler = new LogHandler();
+
+            return new Logger('qalert', [$handler]);
         });
     }
 }
