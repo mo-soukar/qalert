@@ -9,7 +9,10 @@ use Soukar\QAlert\Facades\QAlert;
 class LogHandler extends AbstractProcessingHandler{
 
 
-
+    public function __construct($level = \Monolog\Level::Debug, bool $bubble = true)
+    {
+        parent::__construct($level, $bubble);
+    }
     protected function write(LogRecord $record): void
     {
         $message = $record->formatted;
