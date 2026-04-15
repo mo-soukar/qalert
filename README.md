@@ -45,7 +45,23 @@ APP_NAME="My Awesome Service"
 ```
 
 ------------------------------------------------------------------------
+## 📝 Custom Logging Channel
 
+You can now use **QAlert** as a standard Laravel logging channel. This allows you to send manual logs or specific application errors directly to your configured channels (like Telegram).
+
+### Setup Logging
+Add the `qalert` driver to your `config/logging.php` file:
+
+```php
+'channels' => [
+    // ... other channels
+    
+    'qalert' => [
+        'driver' => 'qalert',
+    ],
+],
+```
+---------------------------------------------------------------
 ## ⚙️ Configuration File (`config/qalert.php`)
 
 After publishing, you can fine-tune the behavior of the package:
