@@ -34,12 +34,12 @@ class TelegramService
             $response = Http::post("https://api.telegram.org/bot{$this->token}/sendMessage", $payload);
 
             if ($response->failed()) {
-                Log::error("QAlert Telegram Error: " . $response->body());
+                Log::channel('single_qalert')->error("QAlert Telegram Error: " . $response->body());
             }
 
             return $response->json();
         } catch (\Exception $e) {
-            Log::error("QAlert Telegram Exception: " . $e->getMessage());
+            Log::channel('single_qalert')->error("QAlert Telegram Exception: " . $e->getMessage());
             return false;
         }
     }

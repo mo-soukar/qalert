@@ -40,7 +40,7 @@ class ChannelManager {
             try {
                 $this->getChannelObject($channel)->send($message, $options);
             } catch (\Exception $e) {
-                \Illuminate\Support\Facades\Log::error("QAlert Channel Failed: " . $e->getMessage());
+                \Illuminate\Support\Facades\Log::channel('single_qalert')->error("QAlert Channel Failed: " . $e->getMessage());
             }
         }
     }

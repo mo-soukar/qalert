@@ -45,6 +45,12 @@ class QAlertServiceProvider
         });
 
 
+        config(['logging.channels.single_qalert' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/qalert.log'),
+            'level' => 'debug',
+        ]]);
+
         Log::extend('qalert', function ($app, array $config) {
             $handler = new LogHandler();
 
